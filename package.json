@@ -1,0 +1,31 @@
+{
+  "name": "todoodle",
+  "version": "1.0.0",
+  "description": "My personal todo desktop application built on electron.js",
+  "keywords": [
+    "desktop-application",
+    "electron.js",
+    "node.js",
+    "electron",
+    "desktop",
+    "ipc"
+  ],
+  "homepage": "https://github.com/Punit9464/Todoodle#readme",
+  "bugs": {
+    "url": "https://github.com/Punit9464/Todoodle/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Punit9464/Todoodle.git"
+  },
+  "license": "MIT",
+  "author": "Punit",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "electron": "^36.4.0"
+  }
+}
