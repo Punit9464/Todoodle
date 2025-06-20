@@ -1,6 +1,6 @@
 const taskInput = document.querySelector("#taskInput");
 const list = document.querySelector("#taskList");
-const tasks = [{ id: 0, content: "Punit"}, { id: 1, content: "Mansi" }];
+let tasks = [];
 const addBtn = document.querySelector('#addTaskBtn');
 const monthElemennt = document.querySelector("#month");
 const dayElement = document.querySelector("#day");
@@ -26,20 +26,23 @@ const months = [
 let idCounter = 0;
 
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", async() => {
     const date = new Date();
     dateElement.textContent = date.getDate();
     monthElemennt.textContent = months[date.getMonth()];
     dayElement.textContent = days[date.getDay()];
 
-    if(tasks.length) {
+    const mongoTasks = await todoAPIs.getAllTodos('2025-06-19');
+    console.log(mongoTasks);
+
+    if(mongoTasks.length) {
         for(let i = 0; i < tasks.length; i++) {
             const listItem = document.createElement("li");
-            listItem.textContent = tasks[i].content;
-            listItem.id = tasks[i].id;
+            listItem.textContent = tasks[i].task;
+            listItem.id = tasks[i]._id;
             list.appendChild(listItem);
         }
-        const totalTasks = tasks.length;
+        const totalTasks = tasks.length + mongoTasks.length;
         const doneTasks = document.querySelectorAll(".taskDone")?.length;
         const progressBarVal = (doneTasks / totalTasks) * 100;
         progressBar.value = progressBarVal;
@@ -56,16 +59,18 @@ addBtn.addEventListener('click', () => {
     if(!taskInput.value) {
         return alert("Enter a task first");
     }
-    const task = { content: taskInput.value, id: idCounter++ };
+    const task = { task: taskInput.value };
     addTask(task);
 });
 
-function addTask(task) {
-    tasks.push(task.content);
+function addTask(todo) {
+    tasks.push(todo.task);
+
+    window.todoAPIs.postTodo(todo);
     
     const listItem = document.createElement("li");
-    listItem.textContent = task.content;
-    listItem.id = task.id;+
+    listItem.textContent = todo.task;
+    listItem.id = todo._id;
 
     list.appendChild(listItem);
     taskInput.value = "";

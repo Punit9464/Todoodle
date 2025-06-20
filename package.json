@@ -28,5 +28,8 @@
   },
   "devDependencies": {
     "electron": "^36.4.0"
+  },
+  "dependencies": {
+    "mongoose": "^8.16.0"
   }
 }
