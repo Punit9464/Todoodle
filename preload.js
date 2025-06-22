@@ -6,6 +6,11 @@ contextBridge.exposeInMainWorld('todoAPIs', {
     },
     postTodo: (todo) => {
         ipcRenderer.send('postTodo', todo);
+    },
+    updateTodo: (todo) => {
+        ipcRenderer.send('updateTodo', todo);
+    },
+    deleteTodo: (todo) => {
+        ipcRenderer.send('deleteTodo', todo);
     }
-    //more APIs here
 });

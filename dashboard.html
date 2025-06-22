@@ -1,34 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todoodle - Dashboard</title>
+    <title>Todoodle - Executive Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <main class="dashboard">
-        <div style="display: flex; flex-direction: column; text-align: center;" class="dayDetails">
-            <h5 id="day">Thursday</h5>
-            <div>
-                <p id="date">13</p>
+    <div class="container">
+        <header class="header">
+            <div class="brand">
+                <h1>TODOODLE</h1>
+                <span class="tagline">Your Desk Buddy and Task Manager</span>
             </div>
-            <h5 id="month">February</h5>
-        </div>
-        <div class="progressBar">
-            <h3>PROGRESS</h3>
-            <progress id="progressBar" max="100" value="0"></progress>
-        </div>
-        <input id="taskInput" type="text" placeholder="Write your task here..."/>
-        <button id="addTaskBtn">+</button>
+            <div class="theme-toggle-container">
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="date-display">
+                <div class="date-card">
+                    <div class="day-name" id="day">Thursday</div>
+                    <div class="date-number" id="date">13</div>
+                    <div class="month-name" id="month">February</div>
+                </div>
+            </div>
+        </header>
 
-        <div style="margin: 25px 25px;">
-            <ul id="taskList">
-            </ul>
-        </div>
+        <main class="dashboard">
+            <section class="progress-section">
+                <div class="progress-header">
+                    <h2>DAILY PROGRESS</h2>
+                    <div class="progress-stats">
+                        <span id="progress-text">0% Complete</span>
+                    </div>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressBar"></div>
+                    </div>
+                </div>
+            </section>
 
-        <button>Finish Day</button>
-    </main>
+            <section class="task-input-section">
+                <div class="input-container">
+                    <input id="taskInput" type="text" placeholder="What needs to be conquered today?"
+                        class="task-input" />
+                    <button id="addTaskBtn" class="add-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </button>
+                </div>
+            </section>
+
+            <section class="tasks-section">
+                <div class="tasks-header">
+                    <h3>TODAY'S OBJECTIVES</h3>
+                    <div class="task-count">
+                        <span id="task-counter">0 tasks</span>
+                    </div>
+                </div>
+                <div class="tasks-container">
+                    <ul id="taskList" class="task-list"></ul>
+                    <div class="empty-state" id="emptyState">
+                        <div class="empty-icon">⚡</div>
+                        <p>Ready to dominate the day?<br>Add your first task above.</p>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="dashboard-footer">
+                <button class="finish-btn" id="finishDayBtn">
+                    <span>COMPLETE DAY</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9,11 12,14 22,4"></polyline>
+                        <path d="m21,12c0,4.97 -4.03,9 -9,9s-9,-4.03 -9,-9 4.03,-9 9,-9c1.67,0 3.22,0.46 4.56,1.25">
+                        </path>
+                    </svg>
+                </button>
+            </footer>
+        </main>
+    </div>
 
     <script src="dashboard.js"></script>
+    <script src="theme-toggle.js"></script>
 </body>
+
 </html>

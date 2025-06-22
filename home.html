@@ -1,18 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todoodle - Your Desk Partner</title>
+    <title>Todoodle - Executive Task Management</title>
+    <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <h2>Welcome to Todoodle</h2>
-    <h5>Your one & only planning desk planner to plan out your day</h5>
-    <a href="dashboard.html">
-        <button>Start</button>
-    </a>
-</body>
+    <div class="hero-container">
+        <div class="background-pattern"></div>
+        
+        <header class="header">
+            <div class="brand-logo">
+                <h1>TODOODLE</h1>
+                <span class="brand-tagline">Executive Edition</span>
+            </div>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </header>
 
+        <main class="hero-content">
+            <div class="hero-text">
+                <h2 class="hero-title">
+                    Master Your Day.<br>
+                    <span class="accent-text">Command Your Success.</span>
+                </h2>
+                
+                <p class="hero-description">
+                    The executive-grade task management system designed for leaders who demand excellence. 
+                    Transform chaos into clarity, goals into achievements.
+                </p>
+
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <span>Lightning Fast</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎯</div>
+                        <span>Goal Focused</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📊</div>
+                        <span>Progress Tracking</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🏆</div>
+                        <span>Results Driven</span>
+                    </div>
+                </div>
+
+                <div class="cta-section">
+                    <a href="dashboard.html" class="cta-button">
+                        <span>Launch Dashboard</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7,7 17,7 17,17"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="dashboard-preview">
+                    <div class="preview-header">
+                        <div class="preview-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="preview-title">Executive Dashboard</div>
+                    </div>
+                    <div class="preview-content">
+                        <div class="preview-progress">
+                            <div class="progress-label">Daily Progress</div>
+                            <div class="progress-bar-preview">
+                                <div class="progress-fill-preview"></div>
+                            </div>
+                            <div class="progress-text">75% Complete</div>
+                        </div>
+                        <div class="preview-tasks">
+                            <div class="preview-task completed">
+                                <div class="task-check">✓</div>
+                                <span>Review quarterly reports</span>
+                            </div>
+                            <div class="preview-task completed">
+                                <div class="task-check">✓</div>
+                                <span>Team strategy meeting</span>
+                            </div>
+                            <div class="preview-task">
+                                <div class="task-check"></div>
+                                <span>Finalize project proposal</span>
+                            </div>
+                            <div class="preview-task">
+                                <div class="task-check"></div>
+                                <span>Client presentation prep</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="theme-toggle.js"></script>
+</body>
 </html>

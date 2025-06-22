@@ -22,6 +22,7 @@ function createWindow() {
         }
     });
 
+    win.removeMenu();
     win.loadFile('home.html');
     win.webContents.openDevTools();
 }
@@ -30,24 +31,29 @@ app.whenReady().then(() => {
     createWindow();
 
     ipcMain.handle('getAllTodos', async function(event, args){
-        console.log(args);
-
-        const data = await todoModel.find({ date: args });
-
-        console.log(typeof data);
-
+        const data = (await todoModel.find({ date: args }).lean());
         return data;
     });
 
     ipcMain.on('postTodo', async function(event, args){
         const newTodo = new todoModel({
-            task: args.task,
-            date: args.date
+            task: args.task
         });
         await newTodo.save();
         return;
     });
 
+    ipcMain.on('updateTodo', async function(event, args) {
+        const todo = await todoModel.findOne({ id: args });
+        todo.isDone = !todo.isDone;
+        await todo.save();
+        return;
+    });
+
+    ipcMain.on('deleteTodo', async function(event, args) {
+        await todoModel.findOneAndDelete({ id: args });
+        return;
+    });
 
     app.on('activate', function() {
         if(BrowserWindow.getAllWindows().length === 0) {
@@ -58,4 +64,10 @@ app.whenReady().then(() => {
 
 app.on('window-all-closed', () => {
     app.quit();
+});
+
+
+//Global Error handler
+process.on('unhandledRejection', function(err){
+    console.error(err);
 });
