@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const todoModel = require('./schema/todo');
 
 const connectDB = async() => {
-    await mongoose.connect('mongodb://localhost:27017/todoodle');
+    await mongoose.connect('mongodb+srv://punitkumar8728:B5s9GqlZzzPUVXXv@cluster-main.pjkniip.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-main');
 }
 
 connectDB().then(() => {
@@ -19,8 +19,11 @@ function createWindow() {
     const win = new BrowserWindow({
         height: 1200,
         width: 800,
+        icon: path.resolve(__dirname, 'assets', 'Todoodle_Icon.png'),
         webPreferences: {
-            preload: path.join(__dirname, 'preload.js')
+            preload: path.join(__dirname, 'preload.js'),
+            nodeIntegration: false,
+            contextIsolation: true
         }
     });
 
