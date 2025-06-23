@@ -252,3 +252,5 @@ window.addEventListener("DOMContentLoaded", async () => {
   updateUI()
   taskInput.focus()
 })
+window.toggleTask = toggleTask;
+window.deleteTask = deleteTask;
