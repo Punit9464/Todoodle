@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const todoModel = require('./schema/todo');
 
 const connectDB = async() => {
-    await mongoose.connect('mongodb+srv://punitkumar8728:B5s9GqlZzzPUVXXv@cluster-main.pjkniip.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-main');
+    await mongoose.connect('mongodb://localhost:27017/todoodle');
 }
 
 connectDB().then(() => {
