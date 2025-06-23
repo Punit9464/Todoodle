@@ -1,6 +1,7 @@
 {
   "name": "todoodle",
   "version": "1.0.0",
+  "productName": "Todoodle",
   "description": "My personal todo desktop application built on electron.js",
   "keywords": [
     "desktop-application",

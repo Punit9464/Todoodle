@@ -1,3 +1,5 @@
+if (require('electron-squirrel-startup')) return;
+
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -24,10 +26,13 @@ function createWindow() {
 
     win.removeMenu();
     win.loadFile('home.html');
-    win.webContents.openDevTools();
 }
 
 app.whenReady().then(() => {
+
+    app.setName('Todoodle');
+    app.getFileIcon(path.resolve(__dirname,'assets', 'Todoodle Icon.png'));
+
     createWindow();
 
     ipcMain.handle('getAllTodos', async function(event, args){
