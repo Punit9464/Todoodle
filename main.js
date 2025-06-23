@@ -36,8 +36,6 @@ function createWindow() {
 app.whenReady().then(() => {
 
     app.setName('Todoodle');
-    app.getFileIcon(path.resolve(__dirname,'assets', 'Todoodle Icon.png'));
-
     createWindow();
 
     ipcMain.handle('getAllTodos', async function(event, args){
