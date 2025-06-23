@@ -24,6 +24,8 @@ function createWindow() {
         }
     });
 
+    if(win.maximizable) win.maximize();
+
     win.removeMenu();
     win.loadFile('home.html');
 }
