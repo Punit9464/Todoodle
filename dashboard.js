@@ -189,7 +189,7 @@ taskInput.addEventListener("keypress", (e) => {
   }
 })
 
-finishDayBtn.addEventListener("click", () => {
+finishDayBtn.addEventListener("click", async () => {
   const completedTasks = tasks.filter((task) => task.isDone).length
   const totalTasks = tasks.length
 
@@ -199,11 +199,33 @@ finishDayBtn.addEventListener("click", () => {
   }
 
   if (completedTasks === totalTasks) {
-    alert(`🎉 Excellent work! You've completed all ${totalTasks} tasks today. You're unstoppable!`)
+    // alert(`🎉 Excellent work! You've completed all ${totalTasks} tasks today. You're unstoppable!`)
+     await Swal.fire({
+      title: `🎉 Excellent work! You've completed all ${totalTasks} tasks today. You're unstoppable!`,
+      toast: true,
+      position: 'top',
+      icon: 'success',
+      theme: 'light',
+      timer: 3000,
+      timerProgressBar: true,
+      showConfirmButton: false
+    });
   } else {
     const remaining = totalTasks - completedTasks
-    alert(`You've completed ${completedTasks} out of ${totalTasks} tasks. ${remaining} tasks remaining. Finish strong!`)
+    // alert(`You've completed ${completedTasks} out of ${totalTasks} tasks. ${remaining} tasks remaining. Finish strong!`);
+    await Swal.fire({
+      title: `You've completed ${completedTasks} out of ${totalTasks} tasks. ${remaining} tasks remaining. Finish strong!`,
+      toast: true,
+      position: 'top',
+      icon: 'info',
+      theme: 'light',
+      timer: 3000,
+      timerProgressBar: true,
+      showConfirmButton: false
+    });
+    return;
   }
+  return;
 })
 
 window.addEventListener("DOMContentLoaded", async () => {
