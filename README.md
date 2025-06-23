@@ -16,6 +16,11 @@
 
 ---
 
+## Demo Screenshots
+![Home Demo](./demo/Home.png)
+![Dashboard Demo 1](./demo/Dashboard.png)
+![Dashboard Demo 2](./demo/Dashboard2.png)
+
 ## 📅 Getting Started
 
 ### 📌 Prerequisites
